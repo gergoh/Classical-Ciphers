@@ -5,5 +5,6 @@ Currently each cipher module runs on its own but the plan is to build a central 
 Current ciphers:
 - Caesar Cipher
 - Vigenère Cipher
+- Playfair Cipher (in progress)
 
 Suggestions are always welcomed!
