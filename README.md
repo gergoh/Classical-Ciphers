@@ -1,6 +1,6 @@
 # Classical Ciphers
 The goal is to build a Java program that can be used to try out several classical encryption methods.
-Currently each cipher module runs on its own but the plan is to build a central main file where the user can decide which cipher (method) to use.
+Currently Main file is for running tests and building new ciphers into the encrypters.classical package.
 
 Current ciphers:
 - Caesar Cipher
