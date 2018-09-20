@@ -1,44 +1,18 @@
-package com.company;
-
-import java.util.Scanner;
+package com.gergoh.encrypters.classical;
 
 public class caesarCipher {
+    private String input;
+    private int key;
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String choice;
-
-        // User is offered two options, to Encrypt text or Decrypt
-        // Keeps looping until answer starts with either letter E or D
-        System.out.println("Encrypt or Decrypt? E/D");
-        do {
-            choice = input.nextLine().toUpperCase();
-        } while (!choice.startsWith("E") && !choice.startsWith("D"));
-
-        int key;
-        // Switch statement check first letter of String choice (E or D)
-        switch (choice.charAt(0)) {
-            case 'E': // Encryption dialog
-                System.out.println("Enter plaintext:\t");
-                String plainText = input.nextLine();
-                System.out.println("Enter encryption key:\t");
-                key = Integer.parseInt(input.nextLine());
-                System.out.println(caesarCipher(plainText, key));
-                break;
-            case 'D': // Decryption dialog
-                System.out.println("Enter ciphertext:\t");
-                String cipherText = input.nextLine();
-                System.out.println("Enter decryption key:\t");
-                key = Integer.parseInt(input.nextLine());
-                key *= -1; // VITAL part for decryption!
-                System.out.println(caesarCipher(cipherText, key));
-                break;
-        }
-
+    // Overloaded constructor
+    // Needs the input plaintext/ciphertext and the key value
+    public caesarCipher(String inputText, int inputKey){
+        input = inputText;
+        key = inputKey;
     }
 
-    // The key value needs to be multiplied by -1 if we are decrypting
-    private static String caesarCipher(String text, int key) {
+    // Encryption (plaintext -> ciphertext)
+    private static String encrypt(String text, int key) {
         // Copying the String text into an array of chars so we can access it and modify it, index by index
         char[] charText = text.toCharArray();
         // A temporarily holder for the converted ASCII values
@@ -72,4 +46,12 @@ public class caesarCipher {
         return new String(charText);
     }
 
+    // Decryption (ciphertext -> plaintext)
+    private static String decrypt(String text, int key) {
+        // Key turned into negative number to decrypt
+        int decryptKey = key * -1;
+
+        // Only difference between encrypt/decrypt is the direction of shift
+        return encrypt(text, decryptKey);
+    }
 }

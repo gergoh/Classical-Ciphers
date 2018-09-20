@@ -1,43 +1,18 @@
-package com.company;
+package com.gergoh.encrypters.classical;
 
-import java.util.Scanner;
+public class vignereCipher {
+    private String input;
+    private String key;
 
-public class vigenereCipher {
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String choice;
-        String key;
-
-        // User is offered two options, to Encrypt text or Decrypt
-        // Keeps looping until answer starts with either letter E or D
-        System.out.println("Encrypt or Decrypt? E/D");
-        do {
-            choice = input.nextLine().toUpperCase();
-        } while (!choice.startsWith("E") && !choice.startsWith("D"));
-
-        // Switch statement check first letter of String choice (E or D)
-        switch (choice.charAt(0)) {
-            case 'E': // Encryption dialog
-                System.out.println("Enter plaintext:\t");
-                String plainText = input.nextLine();
-                System.out.println("Enter encryption key:\t");
-                key = input.nextLine();
-                System.out.println(vigenereEncrypt(plainText, key));
-                break;
-            case 'D': // Decryption dialog
-                System.out.println("Enter ciphertext:\t");
-                String cipherText = input.nextLine();
-                System.out.println("Enter decryption key:\t");
-                key = input.nextLine();
-                System.out.println(vigenereDecrypt(cipherText, key));
-                break;
-        }
-
+    // Overloaded constructor
+    // Needs the input plaintext/ciphertext and the key value (both String)
+    public vignereCipher(String inputText, String inputKey){
+        input = inputText;
+        key = inputKey;
     }
 
-    // Encryption
-    private static String vigenereEncrypt(String text, String key) {
+    // Encryption (plaintext -> ciphertext)
+    private static String encrypt(String text, String key) {
         // Copying input text and key into char arrays so later we can access them by index
         char[] charText = text.toCharArray();
         char[] keyArray = key.toCharArray();
@@ -87,8 +62,8 @@ public class vigenereCipher {
         return new String(charText);
     }
 
-    // Decryption
-    private static String vigenereDecrypt(String text, String key) {
+    // Decryption (ciphertext -> plaintext)
+    private static String decrypt(String text, String key) {
         // Copying input text and key into char arrays so later we can access them by index
         char[] charText = text.toCharArray();
         char[] keyArray = key.toCharArray();
@@ -137,5 +112,4 @@ public class vigenereCipher {
         // The finished charText is converted into a String and returned
         return new String(charText);
     }
-
 }
