@@ -3,8 +3,11 @@ The goal is to build a Java program that can be used to try out several classica
 Currently Main file is for running tests and building new ciphers into the encrypters.classical package.
 
 Current ciphers:
-- Caesar Cipher
-- Vigenère Cipher
-- Playfair Cipher (in progress)
+- Caesar Cipher (encrypt / decrypt)
+- Vigenère Cipher (encrypt / decrypt)
+- Playfair Cipher (encrypt: in progress)
+- Rail Fence Cipher (planned)
+- Stream Cipher (planned)
+- DES encryption (planned)
 
 Suggestions are always welcomed!
