@@ -13,21 +13,26 @@ public class Main {
         String text = "hide the gold";
         String key = "Hello world";
 
-        // Procedure to take input into two letter chunks
-        // If uneven letters, 'Z' added to last chunk
+        ArrayList<char[]> formattedInput = formatInput(text);
+    }
+
+    // Format input into two letter chunks
+    // If uneven letters, 'Z' is added to last chunk
+    private static ArrayList<char[]> formatInput(String input){
         ArrayList<char[]> formattedInput = new ArrayList<>();
         char[] temp = new char[2];
-        for (int i = 0; i < text.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
             for (int j = 0; j < 2; j++) {
-                if (i >= text.length()) {
+                if (i >= input.length()) {
                     temp[j] = 'Z';
                     break;
                 }
-                if (Character.isLetter(text.charAt(i))) temp[j] = text.toUpperCase().charAt(i);
+                if (Character.isLetter(input.charAt(i))) temp[j] = input.toUpperCase().charAt(i);
                 i++;
             }
             formattedInput.add(temp);
         }
+        return formattedInput;
     }
 
     // Takes the key and fills the 5x5 key table
