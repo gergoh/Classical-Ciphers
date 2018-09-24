@@ -20,23 +20,15 @@ public class Main {
     // If uneven letters, 'Z' is added to last chunk
     private static ArrayList<char[]> formatInput(String input){
         ArrayList<char[]> formattedInput = new ArrayList<>();
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i += 2) {
             char[] temp = new char[2];
-            int charItr = 0;
-            while (!Character.isLetter(input.charAt(i))) i++;
-            temp[charItr] = input.toUpperCase().charAt(i);
-            if(i == input.length() - 1){
-                temp[charItr + 1] = 'Z';
-                formattedInput.add(temp);
-                break;
+            for (int j = 0; j < temp.length; j++) {
+                while (!Character.isLetter(input.charAt(i + j))) i++;
+                temp[j] = input.toUpperCase().charAt(i + j);
+                if(i == input.length() - 1) temp[++j] = 'Z';
             }
-            while (!Character.isLetter(input.charAt(i + 1))) i++;
-            temp[charItr + 1] = input.toUpperCase().charAt(i + 1);
-
             formattedInput.add(temp);
-            i++;
         }
-
         return formattedInput;
     }
 
