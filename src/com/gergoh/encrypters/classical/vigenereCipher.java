@@ -1,8 +1,8 @@
 package com.gergoh.encrypters.classical;
 
 public class vigenereCipher {
-    private String input;
-    private String key;
+    public String input;
+    public String key;
 
     // Overloaded constructor
     // Needs the input plaintext/ciphertext and the key value (both String)
@@ -12,7 +12,7 @@ public class vigenereCipher {
     }
 
     // Encryption (plaintext -> ciphertext)
-    private static String encrypt(String text, String key) {
+    public String encrypt(String text, String key) {
         // Copying input text and key into char arrays so later we can access them by index
         char[] charText = text.toCharArray();
         char[] keyArray = key.toCharArray();
@@ -63,7 +63,7 @@ public class vigenereCipher {
     }
 
     // Decryption (ciphertext -> plaintext)
-    private static String decrypt(String text, String key) {
+    public  String decrypt(String text, String key) {
         // Copying input text and key into char arrays so later we can access them by index
         char[] charText = text.toCharArray();
         char[] keyArray = key.toCharArray();

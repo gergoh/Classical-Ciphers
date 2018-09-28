@@ -1,10 +1,13 @@
 package com.gergoh.encrypters.classical;
 
 public class caesarCipher {
-    private String input;
-    private int key;
+    public String input;
+    public int key;
 
-    // Overloaded constructor
+    // Overloaded constructors
+    public caesarCipher(){
+    }
+
     // Needs the input plaintext/ciphertext and the key value
     public caesarCipher(String inputText, int inputKey){
         input = inputText;
@@ -12,7 +15,7 @@ public class caesarCipher {
     }
 
     // Encryption (plaintext -> ciphertext)
-    private static String encrypt(String text, int key) {
+    public String encrypt(String text, int key) {
         // Copying the String text into an array of chars so we can access it and modify it, index by index
         char[] charText = text.toCharArray();
         // A temporarily holder for the converted ASCII values
@@ -47,7 +50,7 @@ public class caesarCipher {
     }
 
     // Decryption (ciphertext -> plaintext)
-    private static String decrypt(String text, int key) {
+    public String decrypt(String text, int key) {
         // Key turned into negative number to decrypt
         int decryptKey = key * -1;
 

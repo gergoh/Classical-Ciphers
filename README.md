@@ -5,7 +5,7 @@ Currently Main file is for running tests and building new ciphers into the encry
 Current ciphers:
 - Caesar Cipher (encrypt / decrypt)
 - Vigenère Cipher (encrypt / decrypt)
-- Playfair Cipher (encrypt: in progress)
+- Playfair Cipher (encrypt)
 - Rail Fence Cipher (planned)
 - Stream Cipher (planned)
 - DES encryption (planned)
