@@ -11,21 +11,25 @@ package com.gergoh.encrypters.classical;
 import java.util.ArrayList;
 
 public class playfairCipher {
-    // Boolean value for which rule we need to use
+    // Boolean values for which rule we need to use
     private boolean columnRule = false,
                     rowRule = false,
                     thirdRule = false;
 
+    // User inputted text and key taken from the constructor
     public String plainText;
     private String key;
 
+    // Two-letter chunk version of plaintext input
     private char [][] formattedInput = formatInput();
+    // 5x5 key table to use for encryption
     public char [][] keyTable = fillKeyTable();
 
-    // TODO Constructors!!!! SAVES NULL?
+    // TODO Fix constructor!! SAVES NULL?
+    // Constructor that takes a plaintext input and key from the user
     public playfairCipher(String inputText, String inputKey){
-        this.plainText = "hide the gold";
-        this.key = "Hello world";
+        this.plainText = inputText;
+        this.key = inputKey;
     }
 
     // Format input into two letter chunks
@@ -50,8 +54,8 @@ public class playfairCipher {
     // TODO duplicateCheck methods -> change parameters because we're using class variables
     // Takes the key and fills the 5x5 key table
     public char[][] fillKeyTable() {
-        // 5x5 key table declaration
-        char[][] keyTable = new char[5][5];
+        // 5x5 key table
+        keyTable = new char[5][5];
 
         // Placing key text into beginning of key table
         tableloop:
