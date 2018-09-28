@@ -1,6 +1,3 @@
-// TODO Make key table accessible for the future as it is needed to decrypt
-// TODO simplify findRule booleans
-// TODO Turn it into a package com.gergoh.encrypters.classical.playfairCipher
 package com.gergoh;
 
 import  com.gergoh.encrypters.classical.playfairCipher;
