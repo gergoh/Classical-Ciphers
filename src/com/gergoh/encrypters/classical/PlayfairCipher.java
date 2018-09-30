@@ -10,31 +10,33 @@ package com.gergoh.encrypters.classical;
 
 import java.util.ArrayList;
 
-public class playfairCipher {
+public class PlayfairCipher {
     // Boolean values for which rule we need to use
     private boolean columnRule = false,
                     rowRule = false,
                     thirdRule = false;
 
     // User inputted text and key taken from the constructor
-    public String plainText;
+    private String plainText;
     private String key;
 
     // Two-letter chunk version of plaintext input
-    private char [][] formattedInput = formatInput();
+    private char [][] formattedInput;
     // 5x5 key table to use for encryption
-    public char [][] keyTable = fillKeyTable();
+    private char [][] keyTable;
 
     // TODO Fix constructor!! SAVES NULL?
     // Constructor that takes a plaintext input and key from the user
-    public playfairCipher(String inputText, String inputKey){
+    public PlayfairCipher(String inputText, String inputKey){
         this.plainText = inputText;
         this.key = inputKey;
+        formattedInput = formatInput();
+        keyTable = fillKeyTable();
     }
 
     // Format input into two letter chunks
     // If uneven letters, 'Z' is added to last chunk
-    public char[][] formatInput(){
+    private char[][] formatInput(){
         ArrayList<char[]> tempArray = new ArrayList<>();
         for (int i = 0; i < plainText.length(); i += 2) {
             char[] tempChar = new char[2];
