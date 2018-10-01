@@ -1,12 +1,12 @@
 package com.gergoh.encrypters.classical;
 
-public class vigenereCipher {
-    public String input;
-    public String key;
+public class VigenereCipher {
+    private String input;
+    private String key;
 
     // Overloaded constructor
     // Needs the input plaintext/ciphertext and the key value (both String)
-    public vigenereCipher(String inputText, String inputKey){
+    public VigenereCipher(String inputText, String inputKey){
         input = inputText;
         key = inputKey;
     }

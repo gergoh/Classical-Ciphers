@@ -1,6 +1,6 @@
 package com.gergoh;
 
-import  com.gergoh.encrypters.classical.playfairCipher;
+import com.gergoh.encrypters.classical.PlayfairCipher;
 
 // Playfair cipher testing
 public class Main {
@@ -8,7 +8,7 @@ public class Main {
         String text = "hide the gold";
         String key = "Hello world";
 
-        playfairCipher cipher = new playfairCipher(text, key);
+        PlayfairCipher cipher = new PlayfairCipher(text, key);
 
         //char [][] formattedInput = cipher.formatInput();
         char[][] keyTable = cipher.fillKeyTable();

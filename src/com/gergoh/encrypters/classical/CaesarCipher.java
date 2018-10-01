@@ -1,21 +1,21 @@
 package com.gergoh.encrypters.classical;
 
-public class caesarCipher {
-    public String input;
-    public int key;
+public class CaesarCipher {
+    private String input;
+    private int key;
 
     // Overloaded constructors
-    public caesarCipher(){
+    public CaesarCipher(){
     }
 
     // Needs the input plaintext/ciphertext and the key value
-    public caesarCipher(String inputText, int inputKey){
+    public CaesarCipher(String inputText, int inputKey){
         input = inputText;
         key = inputKey;
     }
 
     // Encryption (plaintext -> ciphertext)
-    public String encrypt(String text, int key) {
+    private String encrypt(String text, int key) {
         // Copying the String text into an array of chars so we can access it and modify it, index by index
         char[] charText = text.toCharArray();
         // A temporarily holder for the converted ASCII values
