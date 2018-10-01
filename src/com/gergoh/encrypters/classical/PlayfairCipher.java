@@ -25,7 +25,6 @@ public class PlayfairCipher {
     // 5x5 key table to use for encryption
     private char [][] keyTable;
 
-    // TODO Fix constructor!! SAVES NULL?
     // Constructor that takes a plaintext input and key from the user
     public PlayfairCipher(String inputText, String inputKey){
         this.plainText = inputText;
