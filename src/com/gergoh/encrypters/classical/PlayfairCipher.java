@@ -1,11 +1,18 @@
 package com.gergoh.encrypters.classical;
 
 /* Playfair Cipher
-   Multiple-letter encryption cypher
+   Manual symmetric encryption technique
+   First literal digram substitution cipher
+   There are 600 possibilities
    Treats diagrams in the plaintext as single units and translates these units into ciphertext diagrams
    Based on the use of a 5x5 matrix of letters constructed using a keyword
-   Invented by British scientist Sir Charles Wheatstone in 1854
-   Used as the standard field system by the British Army in WWI and the U.S. Army and other Allied forces during WWII
+   Requires no equipment, just a pencil and paper
+   Invented by British scientist Sir Charles Wheatstone in 1854 but bears the name of Lord Playfair for promoting its use
+   It was initially rejected by the British Foreign Office for its perceived complexity
+   Later it was used as the standard field system by the British Army in WWI and the U.S. Army and other Allied forces during WWII
+   First solution was described in a 19 page pamphlet by Lieutenant Joseph O. Mauborgne in 1914
+   The German Army, Air Force and Police used the Double Playfair system as a medium-grade cipher in WWII
+   It lends itself well to crossword puzzles
  */
 
 import java.util.ArrayList;

@@ -1,5 +1,17 @@
 package com.gergoh.encrypters.classical;
 
+/* Vigenere Cipher
+   A type of polyalphabetic substitution cipher
+   It's using a series of interwoven Caesar ciphers
+   It resisted all attempts to break it for three centuries
+   In 1863, Friedrich Kasiski was the first to publish a general method of deciphering Vigenere ciphers
+   It was originally described by Giovan Battista Bellaso in 1553 but the scheme was later misattributed to Blaise de Vigenere in the 19th century
+   The Confederate States of America used a brass cipher disk to implement the Vigenere cipher
+   The Confederacy's messages were regularly cracked by the Union during the American Civil War
+   The Confederate leadership primarily relied upon three key phases: "Manchester Bluff", "Complete Victory" and "Come Retribution"
+   Gilbert Vernan, trying to repair the broken cipher eventually led to the one-time pad, a theoretically unbreakable cipher
+ */
+
 public class VigenereCipher {
     private String input;
     private String key;
