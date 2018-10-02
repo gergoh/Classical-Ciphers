@@ -1,29 +1,16 @@
 package com.gergoh;
 
-import com.gergoh.encrypters.classical.PlayfairCipher;
+import com.gergoh.encrypters.classical.RailFenceCipher;
 
-// Playfair cipher testing
+// Rail Fence Cipher testing
 public class Main {
     public static void main(String[] args) {
-        String text = "hide the gold";
-        String key = "Hello world";
+        RailFenceCipher railCipher = new RailFenceCipher();
 
-        PlayfairCipher cipher = new PlayfairCipher(text, key);
+        railCipher.encrypt();
 
-        //char [][] formattedInput = cipher.formatInput();
-        char[][] keyTable = cipher.fillKeyTable();
+        railCipher.outputCipherText();
 
-        for (int row = 0; row < 5; row++) {
-            for (int column = 0; column < 5; column++) {
-                System.out.print(keyTable[row][column]);
-            }
-            System.out.println();
-        }
-
-
-        String cipherText = cipher.encryptionProcess(keyTable);
-
-        System.out.println("\n" + cipherText);
 
     }
 }
