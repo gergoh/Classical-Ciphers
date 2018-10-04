@@ -26,7 +26,7 @@ public class RailFenceCipher {
         System.out.println("\nEnter a key number: ");
         key = input.nextInt();
         encrypt();
-        System.out.print(outputCipherText());
+        System.out.println(outputCipherText());
     }
 
     // Constructor takes in the plaintext and key value
