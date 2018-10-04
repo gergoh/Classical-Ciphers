@@ -8,31 +8,38 @@ package com.gergoh.encrypters.classical;
  */
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RailFenceCipher {
-    // TODO Delete temporary test variables
-    // User inputted plaintext
-    private String plainText = "defend the east wall";
-    // Key value tells us the depth (rows) of our cipher
-    private int key = 3;
+    Scanner input = new Scanner(System.in);
+    private String plainText; // User inputted plaintext
+    private int key; // Key value tells us the depth (rows) of our cipher
 
-    private char[] formattedInput;
-    private char[][] cipherText;
+    private char[] formattedInput; // plaintext reformatted for later use
+    private char[][] cipherTable;
 
+    // Constructor if no input passed in
+    // Goes through entire encryption process and outputs finished ciphertext
     public RailFenceCipher(){
-        formattedInput = formatInput();
-        cipherText = encrypt();
+        System.out.println();
+        plainText = input.nextLine();
+        System.out.println();
+        key = input.nextInt();
+        encrypt();
+        System.out.print(outputCipherText());
     }
 
+    // Constructor takes in the plaintext and key value
+    // Goes through entire encryption process and outputs finished ciphertext
     public RailFenceCipher(String input, int key){
         plainText = input;
         this.key = key;
-        formattedInput = formatInput();
-        cipherText = encrypt();
+        encrypt();
+        System.out.print(outputCipherText());
     }
 
     // Formats plaintext into consecutive uppercase letters
-    private char[] formatInput(){
+    private void formatInput(){
         ArrayList<Character> tempArray = new ArrayList<Character>();
         for(int i = 0; i < plainText.length(); i++){
             while(!Character.isLetter(plainText.charAt(i))) i++;
@@ -40,28 +47,47 @@ public class RailFenceCipher {
         }
         formattedInput = new char[tempArray.size()];
         for (int i = 0; i < tempArray.size(); i++) formattedInput[i] = tempArray.get(i);
-
-        return formattedInput;
     }
 
+    // TODO Add 'X's as placeholders so that there are the same number of letters on the top row, as on the bottom row
     // Encryption process
-    private char[][] encrypt(){
-        cipherText = new char[key][formattedInput.length];
-
-        for (int columnCounter = 0, rowCounter = 0; columnCounter < formattedInput.length; columnCounter++) {
-            for(rowCounter = 0; rowCounter < key; rowCounter++, columnCounter++) cipherText[rowCounter][columnCounter] = formattedInput[columnCounter];
-            for(rowCounter -= 2; rowCounter > 0; rowCounter--, columnCounter++) cipherText[rowCounter][columnCounter] = formattedInput[columnCounter];
+    private String encrypt(){
+        formatInput();
+        cipherTable = new char[key][formattedInput.length];
+        for (int columnCounter = 0, rowCounter = 0; columnCounter < formattedInput.length;) {
+            for(rowCounter = 0; rowCounter < key; rowCounter++, columnCounter++) {
+                if(columnCounter >= formattedInput.length) break;
+                cipherTable[rowCounter][columnCounter] = formattedInput[columnCounter];
+            }
+            for(rowCounter -= 2; rowCounter > 0; rowCounter--, columnCounter++) {
+                if(columnCounter >= formattedInput.length) break;
+                cipherTable[rowCounter][columnCounter] = formattedInput[columnCounter];
+            }
         }
-        return cipherText;
+        return outputCipherText();
     }
 
 
-    // Outputs finished ciphertext in a single line
-    public void outputCipherText() {
+    // Converts finished encrypted multi-row table into single line String
+    private String outputCipherText() {
+        char[] cipherText = new char[cipherTable[0].length];
+        for (int row = 0; row < key; row++) {
+            for (int column = 0; column < cipherTable[0].length; column++)
+                if (Character.isLetter(cipherTable[row][column])) cipherText[row] = cipherTable[row][column];
+        }
+        return new String(cipherText);
+    }
+
+    /*
+    // Outputs encryption table in 'key' amount of rows
+    // FOR TESTING!
+    public void outputCipherTable() {
         for (int row = 0; row < key; row++) {
             for (int column = 0; column < formattedInput.length; column++)
-                if (Character.isLetter(cipherText[row][column])) System.out.println(cipherText[row][column]);
-            System.out.print(" ");
+                if (Character.isLetter(cipherTable[row][column])) System.out.print(cipherTable[row][column]);
+                else System.out.print(" ");
+            System.out.println();
         }
     }
+    */
 }
