@@ -21,9 +21,9 @@ public class RailFenceCipher {
     // Constructor if no input passed in
     // Goes through entire encryption process and outputs finished ciphertext
     public RailFenceCipher(){
-        System.out.println();
+        System.out.println("\nEnter plaintext: ");
         plainText = input.nextLine();
-        System.out.println();
+        System.out.println("\nEnter a key number: ");
         key = input.nextInt();
         encrypt();
         System.out.print(outputCipherText());
