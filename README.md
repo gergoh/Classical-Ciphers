@@ -6,7 +6,7 @@ Current ciphers:
 - Caesar Cipher (encrypt / decrypt)
 - Vigenère Cipher (encrypt / decrypt)
 - Playfair Cipher (encrypt)
-- Rail Fence Cipher (encrypt -> in progress)
+- Rail Fence Cipher (encrypt)
 - Stream Cipher (planned)
 - DES encryption (planned)
 - ROT13 Cipher (planned)
